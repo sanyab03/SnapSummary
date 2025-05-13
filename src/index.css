@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Secular+One&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #172f33 0%, #000000 100%);
+  
+}
+
+/* Hero Background */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo & Brand Name */
+.brand {
+  display: flex;
+  align-items: flex-start; 
+  gap: 0.5rem;
+  font-family:'sans-serif';
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  top: 1.4rem;    
+  left: 1.6rem;
+}
+
+/* Header Text */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background:white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 2rem;
+}
+
+.hero-title span {
+  color: white;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Subtext */
+.hero-subtext {
+  text-align: center;
+  max-width: 800px;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #e0e7ff;
+}
+
+/* Input + Summary Styles */
+.url-input {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid #94a3b8;
+  background-color: #1e293b;
+  color: white;
+  outline: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+.summary-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f1f5f9;
+  max-width: 700px;
+}
+
+.highlight {
+  color: #9bf0ff;
+  font-size: 1.5rem;
+}
+button.active-mode {
+  background-color: white;
+  color: black;
+}
+.bg {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden; 
+}
+
+.glow-on-hover {
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.headtxt {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.grd {
+  background: -webkit-linear-gradient(purple, rgb(255, 0, 230));
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.txtsummary {
+  margin: 5px 100px;
+  color: white;
+}
+
+.formsection {
+  align-items: center;
+  justify-content: center;
+  margin: 50px 100px;
+  display: flex;
+}
+
+.url-input {
+  height: 40px;
+  padding-left: 10px;
+  padding-bottom: 2.5px;
+  padding-right: 12px;
+  border-radius: 12px;
+}
+
+.summary-box {
+  color: white;
+  padding: 20px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+

@@ -124,7 +124,7 @@ const Demo = () => {
   };
 
   return (
-    <section className="mt-16 w-full max-w-xl mx-auto">
+    <section className="mt-16 w-full max-w-5xl mx-auto px-4">
       <div className="flex justify-center gap-4 mb-6">
         <button
           className={`px-4 py-2 rounded ${mode === "url" ? "bg-white text-black" : "bg-gray-800 text-white"}`}
@@ -192,12 +192,13 @@ const Demo = () => {
         ) : error ? (
           <p className="text-red-500 text-center">Error: {error?.data?.error}</p>
         ) : article.summary && (
-          <div className="flex flex-col gap-3 backdrop-blur-lg bg-opacity-10 rounded-xl p-7 mt-10">
+          <div className="flex-col gap-3 backdrop-blur-lg bg-opacity-10 rounded-xl p-7 mt-10 max-w-5xl mx-auto">
             <h2 className="font-inter text-white-500 text-center font-bold text-[3rem]">
               Summary
             </h2>
-            <div className="summary-box px-11 pb-10">
-              <p className="w-full text-white text-justify text-lg">
+            <div className="summary-box px-4 sm:px-8 md:px-16 lg:px-11
+             pb-10">
+              <p className="w-full text-white text-justify text-lg  leading-loose">
                 {highlightImportantWords(article.summary)}
               </p>
 
@@ -221,6 +222,8 @@ export const CopyIcon = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 8h8a2 2 0 002-2V8a2 2 0 00-2-2h-2m-6 8v4a2 2 0 002 2h4a2 2 0 002-2v-4" />
   </svg>
+
+
 );
 CopyIcon.propTypes = {
   className: PropTypes.string,

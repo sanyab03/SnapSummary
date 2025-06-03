@@ -1,25 +1,30 @@
-
 import { useEffect, useState } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"; // ensure this is installed
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 const ThemeSwitcher = () => {
-  const [dark, setDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
+  const getInitialTheme = () => {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved === "dark";
+    return window.getComputedStyle(document.body).backgroundColor !== "rgb(255, 255, 255)";
+  };
+
+  const [dark, setDark] = useState(getInitialTheme);
 
   useEffect(() => {
-    const root = document.documentElement;
+    const body = document.body;
     if (dark) {
-      root.classList.add("dark");
+      body.classList.add("for_dark_theme");
+      body.classList.remove("for_light_theme");
       localStorage.setItem("theme", "dark");
     } else {
-      root.classList.remove("dark");
+      body.classList.add("for_light_theme");
+      body.classList.remove("for_dark_theme");
       localStorage.setItem("theme", "light");
     }
   }, [dark]);
 
   return (
-    <div className="absolute top-5 right-5">
+    <div className="absolute top-5 right-5 z-50">
       <label className="flex items-center cursor-pointer">
         <div className="relative">
           <input

@@ -2,19 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Secular+One&display=swap');
 
 body {
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: 'Inter', sans-serif;
-  color: white;
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at center, #172f33 0%, #000000 100%);
-  
 }
 
-/* Hero Background */
+.for_dark_theme {
+  background: radial-gradient(circle at center, #172f33 0%, #000000 100%);
+  color: white;
+}
+
+.for_light_theme {
+  background: radial-gradient(circle at center,   #ffffff 0%, #172f33 100%);
+  color: black;
+}
+
+.for_light_theme input {
+  color: black;
+}
+
+.for_light_theme .mode-btn {
+  color: white;
+  background-color: transparent;
+  border: 1px solid #cbd5e1;
+}
+
+.for_light_theme .mode-btn.active-mode {
+  color: black;
+  background-color: white;
+}
+
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -22,38 +44,40 @@ body {
   justify-content: center;
 }
 
-/* Logo & Brand Name */
 .brand {
   display: flex;
   align-items: flex-start; 
   gap: 0.5rem;
   font-family:'sans-serif';
   font-size: 2rem;
-  color: white;
   position: absolute;
   top: 1.4rem;    
   left: 1.6rem;
 }
 
-/* Header Text */
 .hero-title {
   font-size: 3rem;
   font-weight: 800;
-  background:white;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: black;
   text-align: center;
   line-height: 1.2;
   margin-top: 2rem;
 }
+.for_dark_theme .hero-title {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.for_dark_theme .hero-title span {
+  color: white;
+}
 
 .hero-title span {
-  color: white;
+  color: black;
   display: block;
   margin-top: 0.5rem;
 }
 
-/* Subtext */
 .hero-subtext {
   text-align: center;
   max-width: 800px;
@@ -61,36 +85,49 @@ body {
   font-size: 1.2rem;
   font-weight: 300;
   line-height: 1.6;
+  color: black;
+}
+.for_dark_theme .hero-subtext {
   color: #e0e7ff;
 }
 
-/* Input + Summary Styles */
 .url-input {
-  height: 44px;
-  padding: 0 12px;
-  border-radius: 12px;
+  background-color: white;
+  color: black;
   border: 1px solid #94a3b8;
+}
+
+
+.for_dark_theme .url-input {
   background-color: #1e293b;
   color: white;
   outline: none;
   width: 100%;
   max-width: 500px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid #94a3b8;
 }
 
-.summary-box {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 1rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #f1f5f9;
-  max-width: 700px;
+
+.for_light_theme button[type="submit"] {
+  background-color: #172f33; 
+  color: #fff;
 }
+
+.summary-box p{
+  color: rgb(33, 33, 33);
+}
+
 
 .highlight {
-  color: #9bf0ff;
   font-size: 1.5rem;
+  color: #172f33; 
+}
+
+.for_dark_theme .highlight {
+  color: #9bf0ff;
 }
 button.active-mode {
   background-color: white;
@@ -105,64 +142,6 @@ button.active-mode {
   background-position: center;
   background-size: cover;
   overflow-x: hidden; 
-}
-
-.glow-on-hover {
-  width: 100px;
-  height: 50px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  font-size: 1.5rem;
-}
-
-.glow-on-hover:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
-}
-
-.glow-on-hover:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
 }
 
 @keyframes glowing {
@@ -191,8 +170,9 @@ button.active-mode {
 
 .txtsummary {
   margin: 5px 100px;
-  color: white;
+  color: black;
 }
+
 
 .formsection {
   align-items: center;
@@ -210,11 +190,17 @@ button.active-mode {
 }
 
 .summary-box {
-  color: white;
   padding: 20px;
+  border-radius: 12px;
+  margin-top: 1rem;
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: justify;
+  background-color: #f1f5f9;
+  color: black;
 }
 
 
+.for_light_theme .summary-box {
+  background-color: rgba(255, 255, 255, 0.05);
+}
